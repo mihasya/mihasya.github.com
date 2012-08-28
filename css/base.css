@@ -47,3 +47,7 @@ html {
 a {
     color: #8888ff
 }
+
+.post-nav {
+    padding: 5px 0;
+}
