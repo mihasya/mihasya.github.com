@@ -51,3 +51,7 @@ a {
 .post-nav {
     padding: 5px 0;
 }
+
+#footer {
+    text-align: right;
+}
