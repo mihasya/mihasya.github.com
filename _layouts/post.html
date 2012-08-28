@@ -1,0 +1,13 @@
+---
+layout: base
+---
+<div class="post">
+    <div class="post-header">
+        <span class="title">{{ page.title }}</span>
+        <span class="date">{{ page.date | date_to_long_string }}</span>
+        <span class="permalink"><a href="{{ page.url }}">#</a></span>
+    </div>
+    <div class="post-body">
+        {{ content }}
+    </div>
+</div>
