@@ -1,0 +1,49 @@
+html {
+    font-family: Helvetica, Arial;
+    font-size: 12px;
+    background: #fbfbfb;
+}
+
+#header {
+    margin-bottom: 15px;
+    padding: 15px 0;
+    border-bottom: 5px solid #dbdbdb;
+}
+
+#blog-title {
+    font-size: 180%;
+    font-weight: bold;
+}
+
+#blog-tagline {
+    font-size: 120%;
+    color: #ff8888;
+}
+
+#content-wrapper {
+    display: table;
+}
+
+#sidebar {
+    display: table-cell;
+    width: 200px;
+    padding: 0 10px 0 0;
+}
+
+
+#content {
+    display: table-cell;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 140%;
+}
+
+.date {
+    color: #cecece;
+}
+
+a {
+    color: #8888ff
+}
