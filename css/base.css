@@ -1,6 +1,6 @@
 html {
     font-family: Helvetica, Arial;
-    font-size: 12px;
+    font-size: 14px;
     background: #fbfbfb;
 }
 
@@ -39,7 +39,7 @@ html {
 
 #blog-tagline {
     font-size: 120%;
-    color: #ff8888;
+    color: #ff6666;
 }
 
 #links {
@@ -74,12 +74,29 @@ html {
     font-size: 140%;
 }
 
+.title h2 {
+    display: inline;
+    margin: inherit;
+    padding: inherit;
+    font-size: inherit;
+}
+
+
 .date {
     color: #cecece;
 }
 
 a {
-    color: #8888ff
+    color: #ff6666;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.post {
+    border-bottom: 5px solid #dbdbdb;
+    margin-bottom: 20px;
 }
 
 .post-nav {
@@ -88,4 +105,15 @@ a {
 
 #footer {
     text-align: right;
+}
+
+.post-body img {
+    margin: 5px;
+    float: right;
+    border: 1px solid #ff6666;
+    padding: 5px;
+}
+
+.post-body img.small {
+    height: 200px;
 }

@@ -2,15 +2,7 @@
 layout: base
 ---
 {% for post in site.posts limit 10 %}
-<div class="post">
-    <div class="post-header">
-        <span class="title">{{ post.title }}</span>
-        <span class="date">{{ post.date | date_to_long_string }}</span>
-        <span class="permalink"><a href="{{ post.url }}">#</a></span>
-    </div>
-    <div class="post-body">
-        {{ post.content }}
-    </div>
-</div>
-<script type="text/javascript">mixpanel.track("home")</script>
+{% assign content = post.content %}
+{% include post.html %}
 {% endfor %}
+<script type="text/javascript">mixpanel.track("home")</script>
