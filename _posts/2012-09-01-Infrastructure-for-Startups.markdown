@@ -4,7 +4,7 @@ layout: post
 published: true
 ---
 
-<a href="http://www.paulhammond.org/2012/startup-infrastructure/"><img alt="One of Paul's Slides" src="{{ site.url }}/imgs/posts/infrastructure-for-startups/dog.png" class="small" /></a>
+<a href="http://www.paulhammond.org/2012/startup-infrastructure/"><img alt="One of Paul's Slides" src="{{ site.url }}/imgs/posts/infrastructure-for-startups/dog.png" class="small right" /></a>
 
 Conference talks on the subject of infrastructure are often lacking in actionable advice - especially for fledgling startups. I am shamefully guilty of this myself.
 
