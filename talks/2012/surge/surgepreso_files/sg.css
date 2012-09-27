@@ -1,0 +1,63 @@
+body {
+    background-color: 444;
+}
+
+.slide {
+    font-family: "Gotham";
+    font-size: 12pt;
+    background: url(http://localhost:9090/file/bg.png);
+    color: #363636;
+}
+
+h1, h2, h3, h4, h5, h6 {    
+    font-weight: bold;
+    color: #363636;
+}
+
+h1 {
+    font-family: "Markerfield";
+    color: black;
+    font-size: 72px;
+}
+
+.bullets ul li {
+    font-weight: bold;
+}
+
+.bullets ul ul li {
+    font-weight: normal;
+    margin: 5px 0;
+}
+
+.quotation {
+    font-size: 125%;
+    line-height: 2.5em;
+}
+
+.quotation .credit {
+    font-size: 100%;
+}
+
+.shadow {
+    border: 18px solid white;
+    #-moz-box-shadow: 0px 0px 5px #ccc;
+    #-webkit-box-shadow: 0px 0px 5px #ccc;
+    box-shadow: 0px 0px 14px #999999;
+}
+
+small {
+    font-size: 50%;
+    color: #aaaaaa;
+}
+
+small a {
+    color: #aaaaaa;
+}
+
+big {
+    font-size: 150%;
+}
+
+strong {
+    background: #f5ffb4;
+}
