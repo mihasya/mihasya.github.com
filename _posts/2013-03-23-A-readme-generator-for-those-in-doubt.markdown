@@ -4,6 +4,7 @@ layout: post
 ---
 
 Programmers have been lamenting each others' inability to properly document software for many decades. Some recent examples include:
+
 * Tom Preston Werner's [call](http://tom.preston-werner.com/2010/08/23/readme-driven-development.html) for README-driven development
 > a beautifully crafted library with no documentation is also damn near worthless.
 * Ted Nyman's recent Basho Chats diatribe about software expressing itself poorly (video not yet uploaded)
@@ -12,6 +13,7 @@ Programmers have been lamenting each others' inability to properly document soft
 > Hopefully there is a lot of coders looking at it cos we can auto gen documentation..
 
 Powerful stuff. There's been a corresponding surge in tools to assist in creating documentation. Some examples:
+
 * Eric Holscher et al's [Read The Docs](https://readthedocs.org/)
 * Ryan Tomayko's [ronn](https://github.com/rtomayko/ronn#readme)
 
