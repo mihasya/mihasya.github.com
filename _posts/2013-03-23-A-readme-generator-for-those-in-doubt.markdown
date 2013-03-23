@@ -8,7 +8,7 @@ Programmers have been lamenting each others' inability to properly document soft
 * Tom Preston Werner's [call](http://tom.preston-werner.com/2010/08/23/readme-driven-development.html) for README-driven development
 > a beautifully crafted library with no documentation is also damn near worthless.
 * Ted Nyman's recent Basho Chats diatribe about software expressing itself poorly (video not yet uploaded)
-* Peter Morgan's eloquent Go issue report
+* Peter Morgan's [eloquent Go issue report](https://code.google.com/p/go/issues/detail?id=5107)
 > Is that all we want to do is explain bits of code, and its runningz what it does..
 > Hopefully there is a lot of coders looking at it cos we can auto gen documentation..
 
