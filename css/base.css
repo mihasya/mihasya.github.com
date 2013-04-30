@@ -133,3 +133,11 @@ img.right {
 .center {
     text-align: center;
 }
+
+code, a code {
+    background-color: #f8f8f8;
+    border: 1px solid #EAEAEA;
+    border-radius: 3px;
+    margin: 0 2px;
+    padding: 0 5px;
+}
