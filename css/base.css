@@ -119,6 +119,7 @@ a:hover {
 .post-body img {
     margin: 5px;
     border: 1px solid #ff6666;
+    border-radius: 3px;
     padding: 5px;
 }
 
@@ -140,4 +141,10 @@ code, a code {
     border-radius: 3px;
     margin: 0 2px;
     padding: 0 5px;
+}
+
+blockquote {
+    iadfbackground: #f0f0f0;
+    border-left: 5px solid #f0f0f0;
+    padding: 0 10px;
 }
