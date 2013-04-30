@@ -8,7 +8,7 @@ could debate the merits of different MVCC options comfortably, I built a little
 tool called [Ishmael](https://github.com/mihasya/ishmael) to help us make sense
 of `mk-query-digest` data more easily (apparently, the project has been moved to
 the "Percona Toolit" and renamed
-[`pt-query-digest`](http://www.percona.com/doc/percona-toolkit/2.2/pt-query-digest.html).
+[`pt-query-digest`](http://www.percona.com/doc/percona-toolkit/2.2/pt-query-digest.html)).
 Tim Denike made some improvements during his remaining time at Flickr after I
 had left, and then Asher Feldman took the project with him to The Wikimedia
 Foundation. Eventually, sent in a large enough pull request that I simply did
