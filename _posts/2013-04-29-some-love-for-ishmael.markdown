@@ -11,7 +11,7 @@ the "Percona Toolit" and renamed
 [`pt-query-digest`](http://www.percona.com/doc/percona-toolkit/2.2/pt-query-digest.html)).
 Tim Denike made some improvements during his remaining time at Flickr after I
 had left, and then Asher Feldman took the project with him to The Wikimedia
-Foundation. Eventually, sent in a large enough pull request that I simply did
+Foundation. Eventually, he sent in a large enough pull request that I simply did
 not have the capacity to test it - I, after all, have not used MySQL in anger in
 ages. So I did the natural thing and made Asher a collaborator on the repo.
 
