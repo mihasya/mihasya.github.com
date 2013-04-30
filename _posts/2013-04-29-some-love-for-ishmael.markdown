@@ -18,8 +18,8 @@ ages. So I did the natural thing and made Asher a collaborator on the repo.
 This past week, during a moment of vanity, I noticed that there were quite a few
 more stars on the repo than there had been. I wondered what might have caused
 it, and shrugged. Then on Sunday the [DevOps Weekly](http://devopsweekly.com/)
-email provided the answer: Asher had written a post about MariaDB on Wikimedia's
-blog, in which he mentions their use of Ishmael in comparing performance between
+email provided the answer: Asher had written [a post about MariaDB on Wikimedia's
+blog](https://blog.wikimedia.org/2013/04/22/wikipedia-adopts-mariadb/), in which he mentions their use of Ishmael in comparing performance between
 old and new database versions. It is a good read for anyone interested in
 database migrations and upgrades, especially "doing it live!"
 
