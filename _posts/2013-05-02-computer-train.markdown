@@ -10,7 +10,7 @@ Train Computer
 Case](http://www.newegg.com/Product/Product.aspx?Item=N82E16811112393).
 
 <p class="center">
-    <img src="imgs/posts/computer-train/computer-train.jpg" alt="COMPUTER TRAIN!" />
+    <img src="/imgs/posts/computer-train/computer-train.jpg" alt="COMPUTER TRAIN!" />
 </p>
 
 Yes. Yes. Let that sink in. It's a computer case shaped like an old
@@ -38,7 +38,7 @@ instead of "Rail x1"), there's a limited edition one that _has an atomizer_.
 That's right. It makes steam!
 
 <p class="center">
-    <img src="imgs/posts/computer-train/powertrain.jpg" alt="power train" />
+    <img src="/imgs/posts/computer-train/powertrain.jpg" alt="power train" />
 </p>
 
 Basically, I'm spent just thinking about this. The amount of space accommodated
