@@ -27,7 +27,7 @@ to say about it.
 > This SKU, which ends in an S, does NOT move compared to the more expensive SKU
 > that ends in an L. It has no motor, it's just a case that looks like a train.
 > The more expensive model 
-> [...](http://www.newegg.com/Product/Product.aspx?Item=N82E16811112392) actually has a
+> [[...](http://www.newegg.com/Product/Product.aspx?Item=N82E16811112392)] actually has a
 > motor and a transmission, and comes with extra rails, so it will roll back and
 > forth when the computer is turned on.
 
