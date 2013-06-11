@@ -24,7 +24,7 @@ are affected by it.
 ## 1. Understand the Whole Company as a System
 
 <p class="center">
-    <img src="imgs/posts/devops/beer.jpg" alt="bottles!!" /><br />
+    <img src="/imgs/posts/devops/beer.jpg" alt="bottles!!" /><br />
     <small>Photo by <a
     href="http://www.flickr.com/photos/verifex/4840711173">verifex</a></small>
 </p>
@@ -102,7 +102,7 @@ strength of my prior ops teams.
 ### What have I done for ops?
 
 <p class="right">
-<img src="imgs/posts/devops/derek-smith-ops.jpg" alt="a opsian, elbow deep in
+<img src="/imgs/posts/devops/derek-smith-ops.jpg" alt="a opsian, elbow deep in
 'it'" class="small" /><br />
 <small>Photo by <a
 href="http://www.businessinsider.com/simplegeo-office-tour-2011-6?op=1">Business
