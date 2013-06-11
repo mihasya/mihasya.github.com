@@ -181,3 +181,6 @@ cooperation work
 Crowley with specific advice for smoothing the journey of code to production
 for both devs and operators; more on the meaning of "DevOps" (warning: a wall of
 text)
+* [DevOps - The Title Match](http://blog.lusis.org/blog/2013/06/04/devops-the-title-match/) A post
+by John Vincent on a common misconception about the organizational meaning of
+DevOps
