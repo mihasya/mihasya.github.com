@@ -1,0 +1,430 @@
+<div class="slide" data-transition="none"><div class="content title-slide" ref="01main/1">
+<h1>Monitoring - Not Just For Numbers</h1>
+
+<h3>Mikhail Panchenko</h3>
+
+<h3>SF Metrics Meetup 09/09/2013</h3>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/2">
+<h1>Hi!</h1>
+
+<p>My name is Pancakes.</p>
+
+<p>I work @ <strong>Opsmatic</strong></p>
+
+<p class="notes">I am working on better tools for operators at a company called Opsmatic.
+This talk isn't really about that company, but it's about the thought process
+that motivated us to start it and has guided our direction. We've been focusing
+our attention on drift detection and how changes are tracked and communicated
+under the broader premise that there is a lot of room for improvement in
+tools for web and IT operators.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/3">
+<p><img src="files/jay1.jpg" height="550" class="shadow"/></p>
+
+<p class="notes">So while we were discussing all this, we attended a happy hour demo event
+at a coworking space. Suddenly the internet went down. The hosts had a backup
+internet line, and the Cisco Catalyst in the network closet was theoretically
+configured to fail over, but that did not happen. To make matters MORE
+interesting, the whole thing had been set up by a contractor who had since been
+fired. Nobody, including the new contractor, knew how the damn thing was set up.
+So Jay literally sat down and telnetted to a Cisco Catalyst and figured the
+configuration out, all while having graphic violent flashbacks to his days at
+NetCom. We knew then that our general premise was correct and we had work to do.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/4">
+<p><img src="files/jay2.jpg" height="550" class="shadow"/></p>
+
+<p class="notes">And Richard Crowley was very excited for us. He's right back there if you
+want any photobombing tips afterwards.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/5">
+<p><img src="files/tool.jpg" height="550px" class="shadow"/></p>
+
+<p><small>Photo by <a href="http://www.flickr.com/photos/9115274@N05/577382652">s.benno</a></small></p>
+
+<p class="notes">So we started thinking about what problems we'd come across in our
+experiences so far that we could help solve in a generic way. What tasks and
+problems had been demoralizing and distracting? What situations left us longing
+for better tools and made us feel like we were using our time poorly?</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/6">
+<h1>DevOps ~= Get Shit Done</h1>
+
+<p class="notes">I'm going to talk about Dev and Ops as a combined entity with the same
+goals - or what I take DevOps to mean in the first place. Drift isn't just a
+problem for Ops, it's a problem for any tech org as a whole, and we'll see why
+in a second.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="01main/7">
+<h1>Happy</h1>
+
+<ul>
+<li><ul>
+<li>Customers comfortably use the product</li>
+<li>Product evolves to attract new users
+
+<ul>
+<li>Preferably faster than competitors</li>
+</ul>
+</li>
+<li>???</li>
+<li>Profit</li>
+</ul>
+</li>
+</ul>
+
+
+<p class="notes">So as technical staff - what does success look like? When we're in this
+virtuous cycle, we are able to think strategically, prepare ourselves well for
+upcoming releases, communicate and document things effectively, and feel like
+we're doing something rewarding.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="01main/8">
+<h1>Sad</h1>
+
+<ul>
+<li><ul>
+<li>Product is frequently down/slow</li>
+<li>Changes make it worse</li>
+<li>Tech teams spend all their time fighting fires and each other</li>
+</ul>
+</li>
+</ul>
+
+
+<p class="notes">When we're dealing with unexpected contingencies, we're by definition in
+tactical mode - we can only think short term. We don't have the time, energy, or
+organizational confidence for any of the things on the Happy slide.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/9">
+<h1>Surprises = Bad</h1>
+
+<p><img src="files/lloyd.jpg" height="500px" class="shadow"/></p>
+
+<p class="notes">Surprises are the enemy of strategy. They're what keeps us in
+firefighting mode.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/10">
+<h1>We've Come a Long Way</h1>
+
+<p><img src="files/cmlogos.png" height="550px"/></p>
+
+<p class="notes">We've got quite a few ways to reduce surprises, all inspired by the idea
+of convergent operators enforcing a policy. But there's a lot more work to do.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/11">
+<p><img src="files/cliff.png" height="301px" class="shadow"/></p>
+
+<p class="notes">This tweet sparked a good (and now impossible to find) discussion on
+Twitter, some of which is captured by a John Vincent blog post. I blurred out
+Cliff's avatar just to be extra safe.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/12">
+<h1>Introducing the Million Dollar Question</h1>
+
+<p class="notes">Having a ready-fire answer to this question helps avoid surprises and
+helps resolve them quickly when they do come up. And the question is...</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/13">
+<h1>What's Different?</h1>
+
+<p class="notes">this is the most important, time consuming question. Differences between
+hosts, environments, and clusters are the most dumbfounding source of surprises
+- especailly when differences happen outside of what's controlled by policy.
+Policy certainly goes a long way for the things you know are important. But
+trust me, you can never know everything that's important - the domain is just
+too big.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/14">
+<h1>What Has Changed?</h1>
+
+<p class="notes">This is a special case of "What's different" because it involves time,</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content quotation" ref="01main/15">
+<p>"One of the scariest things I ever encounter is a server that&#x2019;s been running
+for ages which has seen multiple upgrades of system and application
+software."</p>
+
+<p class="credit">Chad Fowler</p>
+
+
+<p class="notes">The reason that old server is so scary is that noone knows <strong>what's
+different</strong> about it anymore. Lots of things have probably changed that are
+outside the policy. Drift is pervasive, especially in fast moving environments
+where the surface area for bugs and failures is vast. This leads to an erosion
+of confidence and, more importantly, trust.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/16">
+<h1>Drift happens inside and outside "policy"</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/17">
+<h1>Machines Drift</h1>
+
+<h1>No Matter What</h1>
+
+<p class="notes">The important thing to note is that the causes for drift are often
+actually good things; it's a natural byproduct of Getting Shit Done. So what if
+we just assumed that drift was a fact of life? In fact, what if we allowed for a
+second that some drift was healthy? How would our tools differ if we thought
+this way?</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/18">
+<h1>What even IS drift?</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/19">
+<h1>Drift is deviation from expectations</h1>
+
+<h1>which occurs over time</h1>
+
+<p class="notes">Expectations are what surprises are made of. A lot of expectations are
+implicit; they're our assumptions about the environment.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="01main/20">
+<h1>Expectations</h1>
+
+<ul>
+<li><ul>
+<li>Assumption: System libs ARE all be the same</li>
+<li>Assertion: apache SHOULD be version 2.2.20</li>
+</ul>
+</li>
+</ul>
+
+
+<p class="notes">The fact that "expectations" is such a broad term is important. Note that
+one of these expectations is very broad, and the other is very specific. The
+specific ones usually find their way into "policy." The broad ones do not.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/21">
+<h1>Subtle Differences Outside Policy Scope</h1>
+
+<h1>==</h1>
+
+<h1>Drift</h1>
+
+<p class="notes">It can be a package version. Or a config value. Or an env var. Or a BIOS
+setting. Or a kernel configuration value. Or a kernel module. Or a kernel module
+version.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/22">
+<h1>Subtle Differences Outside Policy Scope</h1>
+
+<h1>Targetted Partial CM Runs</h1>
+
+<h1>==</h1>
+
+<h1>Drift</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/23">
+<h1>Subtle Differences Outside Policy Scope</h1>
+
+<h1>Targetted Partial CM Runs</h1>
+
+<h1>Changes Made During Outage</h1>
+
+<h1>==</h1>
+
+<h1>Drift</h1>
+
+<p class="notes">when you just don't have the time to bother with your actual CM process.
+This, by the way, is called "Real Life." Every company I've talked to about this
+has admitted that they frequently turn off CM on a machine during an outage. CM
+erasing the changes you're making to try and fix something is the worst kind of
+surprise.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/24">
+<h1>Subtle Differences Outside Policy Scope</h1>
+
+<h1>Targetted Partial CM Runs</h1>
+
+<h1>Changes Made During Outage</h1>
+
+<h1>Varying Hardware Configuration</h1>
+
+<h1>==</h1>
+
+<h1>Drift</h1>
+
+<p class="notes">most folks that have stressed EC2 are in the somber club of people that
+have to pay attention to which processor the host underlying their VMs is
+running.  But it's even more obnoxious than that - the same vendor may send you
+two boxes of the same model with subtly varying BIOS settings. All that stuff is
+important, and will eventually show up as a heisenbug.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/25">
+<h1>Drift is difficult to find.</h1>
+
+<p><img src="files/yak.jpg" height="450" class="shadow"/></p>
+
+<p><small>Photo by <a href="http://www.flickr.com/photos/alex_la/8512982319">alex_la</a></small></p>
+
+<p class="notes">Drift is usually a small set of differences. A bump on a massive surface
+area.  I dare you to come up with a better metaphor than shaving a yak. "Here's
+this big hairy yak. Somewhere on this yak is a pimple. Go find it."</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/26">
+<h1>Drift is difficult to find.</h1>
+
+<p><img src="files/yak2.png" height="450" class="shadow"/></p>
+
+<p><small>Photo by <a href="http://www.flickr.com/photos/alex_la/8512982319">alex_la</a></small></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/27">
+<h1>Drift is difficult to find.</h1>
+
+<p><img src="files/yak3.png" height="450" class="shadow"/></p>
+
+<p><small>Photo by <a href="http://www.flickr.com/photos/alex_la/8512982319">alex_la</a></small></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/28">
+<h1>Drift is difficult to find.</h1>
+
+<p><img src="files/yak4.png" height="450" class="shadow"/></p>
+
+<p><small>Photo by <a href="http://www.flickr.com/photos/alex_la/8512982319">alex_la</a></small></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/29">
+<h1>... But not for a computer!</h1>
+
+<p class="notes">Turns out computers are excellent at dealing with piles of structured
+data, and ARE THEMSELVES piles of structured data. Package lists, service lists,
+sysctl values, bios settings..</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/30">
+<h1>Drift is meaningless without a baseline</h1>
+
+<p class="notes">Fortunately, baselines are all around you. The roles/clusters/runlists in
+your CM tool. Nodes with the same classification should be configured
+similarly - pretty good rule to go by. Another form of a baseline is, "How
+things were yesterday." If things were fine yesterday and are broken today,
+yesterday is your baseline.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="01main/31">
+<h1>Drift is meaningless without context</h1>
+
+<p><img src="files/why.png" style="float: right;" height="250px"/></p>
+
+<ul>
+<li><ul>
+<li>What changed?</li>
+<li>When did it change?</li>
+<li>What else was happening?</li>
+<li>Who performed the change?</li>
+</ul>
+</li>
+</ul>
+
+
+<p class="notes">Computers are not as good at figuring out the "why" but they're pretty
+good at helping figure out who might know.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/32">
+<h1>HEY! This is supposed to be</h1>
+
+<h1>about monitoring!</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/33">
+<h1>Monitoring Is The Answer</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/34">
+<p><img src="files/latency_modes.png" height="250px" class="shadow"/></p>
+
+<p><small>From Brendan Gregg's post <a href="http://dtrace.org/blogs/brendan/2013/07/08/modes-and-modality/">Modes and Modality</a></small></p>
+
+<p class="notes">One of the main things for which we already use monitoring is to answer
+that question. Here's an example from Brendan Gregg's post on using percentiles
+to identify interesting patterns in traffic. Begs the question: "What's
+different about those two paths?"</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/35">
+<p><img src="files/skyline.png" height="550px" class="shadow"/></p>
+
+<p><small>From Etsy's post <a href="http://codeascraft.com/2013/06/11/introducing-kale/">Introducing Kale</a></small></p>
+
+<p class="notes">Etsy, ever on the forefront of tooling, have released some tools for
+helping flag anomalous metrics - "Show me when things are different more
+quickly."</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/36">
+<p><img src="files/deployinator.jpg" height="550px" class="shadow"/></p>
+
+<p><small>From Etsy's post <a href="http://codeascraft.com/2010/05/20/quantum-of-deployment/">The Quantum of Deployment</a></small></p>
+
+<p class="notes">Deployinator is a tool that Etsy uses to push and log deploys, which is a
+nice foreshadow. I believe they've evolved their deploy management tool since
+this post too.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content quotation" ref="01main/37">
+<p>"Control &#x2192; Predictability + Interaction</p>
+
+<p>...</p>
+
+<p>Certainty &#x2192; Knowledge + Information</p>
+
+<p>where knowledge is a relationship to <strong>the
+history of what we&#x2019;ve already observed in the past,</strong> i.e. an expectation of
+behaviour, and information is evidence of the present: that things are
+proceeding as expected."</p>
+
+<p class="credit">Mark Burgess. "In Search of Certainty" (emphasis mine)</p>
+
+
+<p class="notes">As if on cue, Mark Burgess published his book which is just chock-full of
+great quotations for a talk like this.  Control and certainty allow us to be
+productive and strategic, and to have certainty we need knowledge of both the
+current state of the system and how it got there. So how can we get there?</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content sm-bullets incremental" ref="01main/38">
+<h1>My Dream</h1>
+
+<ul>
+<li>Ongoing <strong>MONITORING</strong> of infrastructure state
+
+<ul>
+<li>categorical data, hence "not just for numbers"</li>
+<li>keep history, an audit trail</li>
+</ul>
+</li>
+<li>Ability to compare states (find the pimple)
+
+<ul>
+<li>across hosts</li>
+<li>across time</li>
+</ul>
+</li>
+<li>Put computer activity in human context
+
+<ul>
+<li>Who, what, when</li>
+</ul>
+</li>
+<li>Ability to detect + flag drift</li>
+<li>Exceptions, subroles, rollback</li>
+<li>Propagate changes across nodes
+
+<ul>
+<li>Deep CM integration/features</li>
+</ul>
+</li>
+</ul>
+
+
+<p class="notes">Essentially, CM integrated with this stream of activity and wealth of
+data.</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/39">
+<p><img src="files/utopia.jpg" height="500px" class="shadow"/></p>
+
+<p><small>Photo by <a href="http://www.flickr.com/photos/burningmax/4956641376">burningmax</a></small></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="01main/40">
+<h1>Thank You!</h1>
+
+<p><strong>jobs@opsmatic.com</strong></p>
+
+<p>( The dream is a lot of work )</p>
+
+<p class="notes">Quesitons?</p>
+</div>
+</div>
