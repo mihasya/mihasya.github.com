@@ -131,6 +131,10 @@ a:hover {
     height: 200px;
 }
 
+.post-body img.constrained {
+    width: 760px;
+}
+
 .center {
     text-align: center;
 }
