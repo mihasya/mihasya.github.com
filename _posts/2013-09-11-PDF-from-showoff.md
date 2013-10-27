@@ -19,6 +19,10 @@ like Safari will work to with a bit of tweaking
 1. Add the following to a css file that is included in your preso
 
     ```css
+    # preso {
+        width: 11in;
+        height: 8in;  // this may need to be lowered slightly for Safari
+    }
     .slide {
         width: 11in;
         height: 8in; // this may need to be lowered slightly for Safari
