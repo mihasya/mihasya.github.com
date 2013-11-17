@@ -18,7 +18,7 @@ like Safari will work to with a bit of tweaking
 
 1. Add the following to a css file that is included in your preso
 
-    ```css
+<pre>
     # preso {
         width: 11in;
         height: 8in;  // this may need to be lowered slightly for Safari
@@ -27,7 +27,7 @@ like Safari will work to with a bit of tweaking
         width: 11in;
         height: 8in; // this may need to be lowered slightly for Safari
     }
-    ```
+</pre>
 
 1. run `showoff serve` from your repo
 1. Go to `http://localhost:9090/singlepage` (obviously port may vary if you used `-p`)
