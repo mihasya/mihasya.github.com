@@ -127,6 +127,9 @@ a:hover {
     float: right;
 }
 
+.left {
+    float: left;
+}
 .post-body img.small {
     height: 200px;
 }
