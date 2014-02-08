@@ -136,6 +136,7 @@ a:hover {
 
 .post-body img.constrained {
     width: 760px;
+    margin: 0 auto 0 auto;
 }
 
 .center {
@@ -159,4 +160,13 @@ blockquote {
 small {
     font-size: 75%;
     margin: 0 inherit;
+}
+pre {
+    width: 780px;
+    background-color: #f8f8f8;
+    border: 1px solid #EAEAEA;
+    border-radius: 3px;
+    padding: 0 5px;
+    margin: 0 auto 0 auto;
+    overflow: scroll;
 }
