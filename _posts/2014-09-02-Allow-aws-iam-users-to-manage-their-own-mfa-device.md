@@ -21,7 +21,7 @@ MFA (or 2-factor auth) has traditionally been embodied by RSA tokens
 attached to a keychain or a badge lanyard. These days, your phone can act as an
 adequate substitute.
 
-Turning on MFA for your root AWS account is faily easy:
+Turning on MFA for your root AWS account is fairly easy:
 
 <p class="center">
     <img src="/imgs/posts/awsmfa/root_mfa.png" alt="mfa device for root acct"
@@ -41,12 +41,12 @@ steps are involved. Hopefully this post saves you some time.
 
 The critical thing is to give everyone JUST what they need and no more. Since
 you've already secured your root account, you can likely curtail the breach of
-an IAM account fairly quickly, but it's best if the account can wreak minimal
+an IAM account reasonably quickly, but it's best if the account can wreak minimal
 havoc in the first place. For example, if a compromised account was able to 
 fiddle with the credentials of other users, the exposure and cleanup effort
 would increase greatly.
 
-Unfortunately, the IAM permissions policy system is fairly arcane. That is an
+Unfortunately, the IAM permissions policy system is rather arcane. That is an
 undesirable property for a security-related system to have (easy to get wrong),
 but alas, it's the one we've got.
 
