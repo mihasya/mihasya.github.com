@@ -5,10 +5,10 @@ title: "Two Factor Auth: Allow AWS IAM users to manage their own MFA devices"
 
 _(all info and screenshots are from 09/02/2014)_
 
-In light of all the rescent incidents involving attackers taking control of a
+In light of all the recent incidents involving attackers taking control of a
 company's root AWS account, myself and most everyone I know that is managing any
 sort of infrastructure have been re-auditing accounts and stepping up efforts to
-get everyone witin our teams to turn on MFA (multi-factor authentication).  MFA
+get everyone within our teams to turn on MFA (multi-factor authentication).  MFA
 makes it impossible for someone to log in as you with just a username/password
 combo. An additional "factor" is required to confirm the user's identity -
 typically a code from a synchronized number sequence. This has been standard
@@ -191,6 +191,6 @@ for row in iter(table):
 
 For our current team size and growth rate, and compliance needs, this is
 sufficient. I did come across an example of what a fully-fleshed out tool would
-look like in the the excellent [DevOps Weekly](http://devopsweekly.com/): The
+look like in the excellent [DevOps Weekly](http://devopsweekly.com/): The
 Guardian's [`gu-who`](https://github.com/guardian/gu-who) for performing
 account audits on GitHub accounts.
