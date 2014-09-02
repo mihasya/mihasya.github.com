@@ -1,0 +1,57 @@
+n light of recent attacks involving taking control of a companyʹs root AWS
+account, I and most everyone I know that manages any sort of infrastructure have
+been re‑auditing accounts and stepping up efforts to get everyone within our
+teams to turn on MFA (multi‑factor authentication).
+
+By enabling MFA, you make it impossible for someone with just your
+username/password combo to gain access to your account. An additional ʺfactorʺ
+is required to confirm your identity - typically a randomly-generated code. The
+use of MFA has been standard practice in larger companies and capital‑E
+Enterprise for many years, and is now starting to be taken seriously by folks
+operating at a smaller scale and in the cloud. No one wants to be the next
+tragedy.
+
+MFA (or 2‑factor auth) has traditionally been embodied by RSA tokens attached to
+a keychain or a badge lanyard. These
+days, your phone can act as an equivalent substitute.
+
+Turning on MFA for your root AWS account is faily easy:
+
+
+However, it took me an unfortunate amount of time to figure out how to allow
+users created as IAM accounts to manage
+their own MFA devices. Setting peopleʹs devices up by hand through the root
+account was simply not an acceptable solution.
+Even at our size it was going to be a major headache, especially for remote
+employees.
+
+In the end, itʹs all documented in AWS docs, but itʹs a bit buried, and multiple
+steps are involved. I’m sharing the details in the hope that it will save you
+some time securing your accounts.
+
+Just The Right Amount
+
+The critical thing is to give everyone JUST what they need and no more. Since
+youʹve already secured your root account, you
+can likely curtail the breach of an IAM account fairly quickly, but itʹs best if
+a user of the account can wreak minimal havoc in the first place. For example,
+if a compromised account was able to then fiddle with the credentials of other
+users, the exposure and cleanup effort would increase greatly.
+
+Unfortunately, the IAM permissions policy system is fairly arcane and it’s easy
+to set the incorrect settings, which is an undesirable attribute for a
+security‑related system, but alas, itʹs the system weʹve got to work with.
+
+IAM Policies are made up of combinations of JSON blobs (ʺstanzasʺ) - each
+containing a unique identifier, an effect (Allow,
+Deny), an action, and a resource to which the effect/action combo should be
+applied. Thereʹs a whole bunch of
+documentation on the subject here so I wonʹt spend too much time elucidating it.
+Letʹs cut straight to what we need.
+
+
+
+Surprisingly, the default ʺPassword Policyʺ on our AWS account was set to allow
+passwords as short as 6 characters with no
+additional requirements. Even with MFA enabled, youʹll want to crank that up to
+something quite a bit more robust.
