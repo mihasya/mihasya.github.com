@@ -5,15 +5,14 @@ title: A failure months in the making
 
 _This is the story of an outage that occurred on September 25th 2014 and has
 previously been discussed in the context of blameless post mortems on the
-[PagerDuty blog](http://blog.pagerduty.com/2014/10/blameless-post-mortems-strategies-for-success/)_
+[PagerDuty blog](http://blog.pagerduty.com/2014/10/blameless-post-mortems-strategies-for-success/)_.
 
 If you attended Surge 2014, you may have noticed something strange: a man was
 sitting on one of the cube-shaped stools in the Fastly expo area hunched over
 his laptop almost the entire day, and well into the evening hours. Even if you
 didn't notice, and even if you weren't even AT the conference, you may be
 curious about this man. The security guard certainly was, as he made his rounds
-after dark, long after everyone had left the expo area.. including actual
-Fastly employees.
+after dark, long after everyone had left the expo area..
 
 That man was yours truly; I was fixin' stuff. This is the story of what
 happened.
@@ -66,11 +65,10 @@ we use a replication factor of 3, we can afford to have at least one of those
 rebooted at any time.
 
 We briefly debated pre-emptively re-provisioning the Cassandra nodes anyway, but
-decided that it was better to just let the reboot happen - copying data is
-involved, so replacing these nodes is a bit time consuming. Since I was
-fortuitously in the Eastern time zone for Surge anyway, I would just get up just
-before the maintenance window started at 8AM local and gracefully stop Cassandra
-on the node about to be rebooted out of an over-abundance of caution.
+decided that it was better to just let the reboot happen. Copying data is time
+consuming, and the reboots were hours away. We would just get up just before the
+maintenance window started and gracefully stop Cassandra on the node about to be
+rebooted out of an over-abundance of caution.
 
 To minimize the amount of odd-hours activity, we decided to stop/start all the
 stateless nodes that were scheduled to be rebooted on our own terms, during
@@ -91,8 +89,11 @@ services that power the Opsmatic app) and then went to replace it.
 
 We had provisioned our AWS infrastructure using [Chef Metal](https://github.com/opscode/chef-provisioning)
 so replacing the node should have been as simple as terminating it and then
-"converging" the infrastructure. Chef, in theory, would detect that the "stack"
-cluster was missing a node and provision a new one to replace it.
+"converging" the infrastructure - a single, global command that does not take
+any parameters other than the declaration of what your infrastructure should
+look like (number of nodes in each cluster, etc). Chef, in theory, would detect
+that the "stack" cluster was missing a node and provision a new one to replace
+it.
 
 So that is what I did. Replacing a node in our infrastructure is a routine
 operation that we had practiced several times without incident.
@@ -128,8 +129,8 @@ on fog:AWS:************:*********) was started but SSH did not come up.
 Rebooting machine in an attempt to unstick it ...
 ```
 
-One per server. We quickly confirmed in the `#chef` IRC channel that the cause
-was a bug - because Chef could not establish an SSH connection to these nodes,
+One per server. We quickly confirmed in the `#chef` IRC channel that this was a
+bug - because Chef could not establish an SSH connection to these nodes,
 it decided to reboot them. That, apparently, should not have happened.
 
 ```
@@ -156,7 +157,8 @@ iteration of Opsmatic's infrastructure was one big server at an MSP; from there,
 we moved straight to the Chef-driven AWS setup. However, that small bit
 of cruft persevered in our `chef-repo`.
 
-My hunch was correct. We were able to confirm that `remove_default_users`
+My hunch was correct. Although `remove_default_users` was never part of any
+roles or run lists in the new infrastructture, we were able to confirm that it
 was applied on all the nodes on August 31st (just a couple of days after the
 last time we had practiced replacing a node) by performing a search in Opsmatic
 itself:
@@ -166,14 +168,15 @@ itself:
     class="constrained" />
 </p>
 
-However, it was no longer in any of the run lists. So how did it get there? That
+However, by the time of the outage it was once again absent from all run lists.
+So how did it get there on August 31st and how was it ultimately removed? That
 would take another couple of weeks to figure out.
 
 The `remove_default_users` recipe was clearly dead weight; we had gotten a
 little sloppy and let a bit of invisible technical debt accumulate. In order to
 prevent the same thing happening again, we immediately deleted the recipe. This
-has another nice side-effect: the next time this recipe is added to a run list,
-Chef will fail. We have good visibility into those failures in Opsmatic, so we
+has another nice side-effect: the next time this recipe appeared in a run list,
+Chef would fail. We have good visibility into those failures in Opsmatic, so we
 would be able to react and debug "in the moment."
 
 That exact thing happened on October 14th: as I was doing some
@@ -191,8 +194,7 @@ role was copied into another file called `base-original.json` to be used as a
 reference as pieces of it were pulled into other cookbooks etc. Many edits were
 then made to the role in the `base.json` file.
 
-The `base-original.json` file stuck around in the git repository, presumably due
-to the use of `git commit -a` for expediency, which is fine 99% of the time.
+The `base-original.json` file stuck around in the `roles` directory.
 
 But here's the thing about a role file: unlike cookbooks, the name of the role
 doesn't just come from the filename; it comes from the `name` field defined
@@ -222,13 +224,17 @@ were both in use. I had modified both files and uploaded them both to the Chef
 server, first `base`, then `base-original`. In reality, they both updated the
 same role, and the `base-original` content won out because it was uploaded
 second. Chef ran at least once with this configuration, deleting the `ubuntu`
-user. Presumably some time later, someone who DID know that `base-original` was
-not to be uploaded made yet more changes. By the time the epic reboot happened,
-it was gone from the run list again, leaving us to scratch our heads.
+user. Some time later, someone who DID know that `base-original` was not to be
+uploaded made yet more changes and only uploaded `base`, wiping
+`remove_default_users` out once more. By the time the epic reboot happened, it
+was gone from the run list again, leaving us to scratch our heads.
 
-Whoever ran chef-metal next was going to cause this reboot. It just so happened
-that I did it from a conference and ended up spending my evening plugged into an
-expo booth's outlet.
+Because the `ubuntu` user was created by the provisioning process and not
+explicitly managed by Chef, it was not re-created.
+
+_Whoever ran `chef-metal` next was going to cause a global reboot._ It just so
+happened that I did it from a conference and ended up spending my evening
+plugged into an expo booth's outlet.
 
 <p class="center">
     <img src="/imgs/posts/rebootorama/selfie.png" alt="outage selfie"
@@ -236,6 +242,13 @@ expo booth's outlet.
 </p>
 
 ### Remediations and Learnings
+
+#### Computers are Hard
+
+Managing even a small infrastructure requires discipline, precision, and
+thoroughness. The smallest bit of cruft can combine with other bits of cruft to
+form a cruft snowball (cruftball?) of considerable heft over a relatively short
+time period.
 
 #### Cookbooks vs Roles
 
@@ -251,18 +264,21 @@ named `base.rb`.
 While the theory behind `chef-metal` sounds good, we have started switching away
 from it. Bugs and maturity are the immediate problems, but it would be foolish
 to act like those don't exist in all software, including whatever other scheme
-we end up using. The theory behind `chef-metal` itself sounds good, and it's the
+we end up using. This single bug is not why we're migrating away.
+
+The theory behind `chef-metal` itself sounds good, and it's the
 "right" sort of automation, e.g. it's not [just scripting steps normally
 performed by a human](http://www.kitchensoap.com/2012/09/21/a-mature-role-for-automation-part-i/)
-
 However, it was very alarming how easily a very localized, routine change which
 had been successfully executed fairly recently turned into a global disaster.
-This is a big red flag for any system. I'm sure there's a very precise term to
-describe this mismatch somewhere in the literature, but it's escaping me at the
-moment. In the long run, if we're afraid to perform simple tasks with the the
-provisioning system, we're not going to provision and replace nodes as
-frequently. Whenever you stop doing something regularly, you become bad at it.
-Routine operations should have routine consequences.
+This is a big red flag for any system. It is an indicator of _unnecessary
+coupling_. Every time we wanted to add any node to our infrastructure, however minor
+and auxiliary, we'd have to perform an operation that touches _everything_.
+Having witnessed the potential for disaster, this would elicit a healthy dose of
+The Fear each time. In the long run, if we're afraid to perform simple tasks
+with the the provisioning system, we're not going to provision and replace nodes
+as frequently. Whenever you stop doing something regularly, you become bad at
+it. Routine operations should have routine consequences.
 
 There are also more tactical concerns: "can't SSH to this server, better reboot
 it" sounds EXACTLY like automating a manual ops process, and a bad one at that.
@@ -296,3 +312,32 @@ in their infrastructure. That we were able to find when a particular recipe was
 great, but the experience also illuminated some gaps in our view of CM (e.g.
 role/run list changes, and some "meta" features to surface such changes). We're
 hard at work, converting what we learned into real improvement in the product.
+
+### Parting Thoughts
+
+As soon as we recovered from this outage, I thought "I'm going to have to write
+about this." It is a great example of a complex system failure, "like the ones
+you read about." It served as a great, rapid refresher course on complex system
+theory; it reminded us that we have to minimize coupling and interactions within
+our systems constantly and ruthlessly.
+
+If you enjoyed this story (you sadist), you'll probably like the following posts
+and books in the broader literature.
+
+* [**The Field Guide to Understanding Human Error**](http://www.amazon.com/Field-Guide-Understanding-Human-Error/dp/0754648265/)
+by Sidney Dekker, and pretty much anything else by Dekker on the subject of
+human error and human factors.
+* [**Normal Accidents**](http://www.amazon.com/Normal-Accidents-Living-High-Risk-Technologies/dp/0691004129)
+by Charles Perrow - a great introduction to complex systems, complete with great
+anecdotes from a number of different fields. 
+* [**Make It Easy**](http://whilefalse.blogspot.com/2012/12/make-it-easy.html)
+by Camille Fournier is a great concise post on the importance of designing
+systems and processes with the operator in mind.
+* [**Kitchen Soap Blog**](http://www.kitchensoap.com/) by John Allspaw is a
+great source for keeping abreast of developments in complex system failure, as
+well as ops and ops management in general.
+* Amazon's [**Epic 2011 Post Mortem**](http://aws.amazon.com/message/65648/) - I
+mentioned this post in my [Surge 2011
+talk](http://surge.omniti.com/2011/speakers/mike-panchenko) because it read so
+much like parts of the Three Mile Island nuclear accident's description in
+_Normal Accidents_
