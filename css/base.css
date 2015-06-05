@@ -173,3 +173,7 @@ pre {
     margin: 0 auto 0 auto;
     overflow: scroll;
 }
+
+#comments_wrapper {
+    padding: 0 5px;
+}

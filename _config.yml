@@ -2,3 +2,11 @@ name: Mikhail Panchenko
 description: Burrito Enthusiast, Naked Neighbor
 url: http://blog.mihasya.com
 markdown: rdiscount
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "post"
+    values:
+      comments: true
