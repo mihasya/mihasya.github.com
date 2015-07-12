@@ -37,5 +37,16 @@
                 <a href="https://mixpanel.com/f/partner"><img src="https://cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a>
             </div>
         </div>
+        <script>
+            // this gets included regardless of whether or not comments are turned on, because we want counts
+            // on both individual post and index pages
+            var disqus_shortname = 'mihasya';
+            (function () {
+                var s = document.createElement('script'); s.async = true;
+                s.type = 'text/javascript';
+                s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+                (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+            }());
+        </script>
     </body>
 </html>

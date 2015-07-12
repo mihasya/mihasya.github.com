@@ -2,10 +2,14 @@
     <div class="post-header">
         <span class="title"><h2>{{ post.title }}</h2></span>
         <span class="date">{{ post.date | date_to_long_string }}</span>
-        <span class="permalink"><a href="{{ post.url }}">#</a></span>
+        <span class="permalink">
+            <a href="{{ post.url }}">#</a>
+            <a href="{{ post.url }}#disqus_thread"></a>
+        </span>
     </div>
     <div class="post-body">
         {{ content }}
+        {% if page.comments == false or page.comments == nil %}<a href="{{ post.url }}#disqus_thread"></a>{% endif %}
     </div>
     {% if page.comments %}
     <div id="comments_wrapper">
