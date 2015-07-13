@@ -66,7 +66,7 @@ regularly either.._
 
 ### Clarity
 
-In the summer of 2012, I did a brief contacting stint with Lirato. Among other things, I
+In the summer of 2012, I did a brief contacting stint with Librato. Among other things, I
 helped build a Java client library. They also asked me to tie that client to
 Coda's library, so I obliged and [submited a PR](https://github.com/dropwizard/metrics/pull/258).
 Coda replied fairly tersely:
