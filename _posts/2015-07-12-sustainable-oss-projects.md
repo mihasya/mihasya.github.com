@@ -47,12 +47,12 @@ I quickly realized that I was not qualified to review a good chunk of the PRs:
 * Fallback to old influxdb client snapshot
 * Update influxdb client
 
-"I don't know _shit_ about InfluxDB," I thought. "How am I supposed to decide
+"I don't know _jack_ about InfluxDB," I thought. "How am I supposed to decide
 what gets merged and what doesn't?" There was a Riemann client in there too. Who
 am I to judge a Riemann client lib?
 
 I had also observed that the InfluxDB API was still changing quite a bit. I
-remembered that there had previously been a wave of PRs about InfluxDB. _Shit,
+remembered that there had previously been a wave of PRs about InfluxDB. _Wait,
 was this the same wave?_
 
 Another issue that gave me pause was that I had no idea how many people were
@@ -61,7 +61,7 @@ working. How many builds would break? Go's notoriously loosey-goosey dependency
 management made it likely that as soon as I merged any API changing PR, I would
 get another PR changing it back the next day.
 
-There was also a PR about adding a Riemann client. _Shit, I don't use that
+There was also a PR about adding a Riemann client. _Welp, I don't use that
 regularly either.._
 
 ### Clarity
@@ -143,11 +143,11 @@ help of services like GitHub, TravisCI, CodeClimate, etc., there's no need to
 maintain a mailing list, apply patches by hand, set up some jury-rigged systems
 for running tests. It's all free, and it's all great. Use it. `go-metrics` and
 `go-tigertonic` do not take advantage of the OSS ecosystem, and I am about to
-fix the shit out of that. One other small note here: you should make it very
-easy to replicate the exact process that the build is going to perform locally.
-There should be a `Makefile` or something similar containing the one command
-that the build tool is going to run so that folks can validate their branches
-easily without having to wait on the CI tool to run against their PR.
+fix that. One other small note here: you should make it very easy to replicate
+the exact process that the build is going to perform locally.  There should be a
+`Makefile` or something similar containing the one command that the build tool
+is going to run so that folks can validate their branches easily without having
+to wait on the CI tool to run against their PR.
 
 Hopefully you find our experience with maintaining and reviving `go-metrics`
 helpful, and this story helps you avoid similar pitfalls. Happy hacking.
