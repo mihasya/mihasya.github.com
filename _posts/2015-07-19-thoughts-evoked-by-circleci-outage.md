@@ -81,7 +81,7 @@ I don't actually think that's an "Unusual" place to start at all. If one of the
 problems is that updates to the queue are becoming too expensive and every
 additional update is exacerbating the problem, start eliminating updates!
 
-The rest of that paragraph is also not unusual at all. It's hints at some
+The rest of that paragraph is also not unusual at all. It hints at some
 details about the CircleCI infrastructure that you would find in an
 overwhelming majority of infrastructures.
 
