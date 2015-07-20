@@ -157,7 +157,7 @@ overhead at the expense of introducing gratuitously unnecessary coupling.
 However, just having the separate ELB gives us recourse in the event of a sudden
 surge in robot traffic: we can just blackhole THAT traffic at the ELB and
 continue serving site and API read traffic. The robots would be mad, and the
-data you were browsing would gradually get more and more stale stale, but it
+data you were browsing would gradually get more and more stale, but it
 beats the big ugly `500` page.
 
 The Opsmatic agent is also built to accumulate data locally if it can't
