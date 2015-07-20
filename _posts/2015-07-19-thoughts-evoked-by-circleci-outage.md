@@ -111,7 +111,7 @@ resource that has nothing to do with serving the site.
 I do obsess over this stuff, and we've already had our fair share of outages
 with very similar causes. I want to talk a bit about how traffic is currently
 handled at Opsmatic. This section is full of admissions of having flavors of the
-same issues as above to further drive the point home that noone's infrastructure
+same issues as above to further drive the point home that no one's infrastructure
 is perfect, certainly not ours. It's also meant to demonstrate that following
 some very high level guidelines built on prior learning can go a long way
 towards improving an infrastructure's **posture** in the event of unexpected
